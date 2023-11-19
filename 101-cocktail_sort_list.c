@@ -69,3 +69,19 @@ void swap_nodes(listint_t **list, listint_t *node1, listint_t *node2)
 	if (node1 == *list)
 		*list = node2;
 }
+/**
+ * free_list - Frees the memory allocated for a doubly linked list
+ * @list: Pointer to the head of the doubly linked list
+ */
+void free_list(listint_t *list)
+{
+	listint_t *current = list;
+	listint_t *next;
+
+	while (current != NULL)
+	{
+		next = current->next;
+		free(current);
+		current = next;
+	}
+}
